@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Credits({ restart }) {
   return (
     <div className="credits">

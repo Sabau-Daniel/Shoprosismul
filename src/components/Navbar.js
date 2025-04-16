@@ -1,3 +1,5 @@
+import React from "react";
+
 import "./index.css";
 import anca from "./poze/anca-alexandrescu.png";
 

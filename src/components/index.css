@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  background-color: black;
+  color: white;
+  flex-wrap: wrap;
+}
+.brand {
+  margin-left: 15rem;
+  font-weight: 900;
+}
+.nav-content {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  justify-content: space-around;
+}
+.nav-elem {
+  align-self: center;
+  padding: 20px 20px;
+  font-weight: 900;
+  font-size: larger;
+  cursor: pointer;
+}
+.left-margin {
+  margin-right: 2rem;
+}
+.logo {
+  margin-left: 1.5rem;
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+}
+
+/* grey-section*/
+
+.grey {
+  background-color: rgb(63, 63, 63);
+  padding: 10rem 0.5rem 1rem;
+}
+.ong {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.deep-state {
+  margin: 0 2rem;
+  width: 40rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.white-text {
+  padding: 0.5rem;
+  color: rgb(255, 255, 255);
+}
+
+.btn-holder {
+  display: flex;
+  margin-right: 3rem;
+}
+.btn {
+  margin: 1rem 2rem;
+  border-radius: 1rem;
+  height: 3rem;
+  width: 7rem;
+  font-size: large;
+  font-weight: 700;
+  color: rgb(85, 23, 23);
+  background-color: yellow;
+  border-style: outset;
+  border-color: brown;
+  cursor: pointer;
+}
+
+/* white-section*/
+
+.white {
+  background-color: rgb(204, 204, 204);
+  padding: 2rem 0.5rem 1rem;
+}
+.photo {
+  height: 40rem;
+  width: auto;
+  margin: 0 15rem 0 2rem;
+}
+
+.coiful-dacic {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.black-text {
+  padding: 0.5rem;
+  color: rgb(0, 0, 0);
+}
+
+/* POPUP */
+
+.popup {
+  position: relative;
+  justify-content: space-between;
+  padding: 1rem;
+  color: rgb(109, 2, 2);
+  border-style: solid;
+  border-color: rgb(109, 2, 2);
+  background-color: rgb(0, 0, 0);
+  position: fixed;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.4rem;
+
+  cursor: pointer;
+}
+
+/* GAME OVER */
+
+.gameover {
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+  padding-top: 10%;
+  font-size: 500%;
+  color: rgb(109, 2, 2);
+  background-color: rgb(0, 0, 0);
+  position: fixed;
+  text-align: center;
+}
+
+.rubik-wet-paint-regular {
+  font-family: "Rubik Wet Paint", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.credits {
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+  font-size: 500%;
+  background-color: rgb(0, 0, 0);
+  position: fixed;
+  text-align: center;
+}
+
+.credits-title {
+  color: white;
+  font-size: 75px;
+  padding: 5% 0 10%;
+}
+.credits-message {
+  color: white;
+  font-size: 30px;
+  padding: 0 5%;
+}
+
+.credits-author {
+  color: rgba(255, 255, 255, 0.733);
+  font-size: 20px;
+  padding: 8% 5% 0;
+  font-weight: 100;
+}
+
+.button {
+  background-color: black;
+  color: white;
+  margin-top: 10%;
+  border-color: rgb(0, 0, 0);
+  border-radius: 10%;
+  font-size: 30px;
+  padding: 0.75rem;
+  cursor: pointer;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.fade-in.show {
+  opacity: 1;
+}

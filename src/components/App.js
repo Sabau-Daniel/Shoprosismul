@@ -201,28 +201,3 @@ function App() {
 }
 
 export default App;
-
-/*const [top, setTop] = useState("45%");
-const [left, setLeft] = useState("80%");
-const [message, setMessage] = useState(messageList[0]);
-*/
-//const [quantity, setQuantity] = useState(0);
-
-/*function handleSetTop(min, max) {
-  setTop(() => Math.floor(Math.random() * (max - min + 1)) + min + "%");
-  }
-  function increaseQuantity(quantity) {
-    var newQuantity = setQuantity((quantity) => quantity + 1);
-    return newQuantity;
-  }
-
-function handleSetLeft(min, max) {
-  setLeft(() => Math.floor(Math.random() * (max - min + 1)) + min + "%");
-}
-*/
-/*
-function handleSetMessage(min, max) {
-  var messageNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-  setMessage(() => messageList[messageNumber]);
-}
-*/

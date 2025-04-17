@@ -9,3 +9,4 @@ Acest proiect este realizat in React si este un joc horror despre o persoana car
 Fiecare interactiune cu orice buton de tip "Sursă" sau "Donație" genereaza paranoia pana la un prag maxim.
 
 ### Distractie placuta!
+https://sabau-daniel.github.io/Shoprosismul/

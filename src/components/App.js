@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useState } from "react";
 
 import Navbar from "./Navbar";
@@ -7,13 +6,14 @@ import GreySection from "./GreySection";
 import WhiteSection from "./WhiteSection";
 import Popup from "./Popup";
 import GameOver from "./GameOver";
-import Disclaimer from "./Credits";
+import Disclaimer from "./Disclaimer";
 
 import statulparalel from "./poze/statulparalel.png";
 import coifuldacic from "./poze/coiful-dacic.jpg";
 import presedinteleales from "./poze/presedintele-ales.png";
 
 function App() {
+  // An array of messages randomly displayed in popups
   const messageList = [
     "Sunt pe urmele tale!",
     "Toti iau bani",
@@ -48,25 +48,42 @@ function App() {
     "Au pus o păpușă în frunte și i-au dat un costum.",
   ];
 
+  // Constants defining percentage ranges for popup positioning
   const min = 0;
   const maxTop = 46;
   const maxLeft = 85;
 
-  const [quantity, setQuantity] = useState(0);
-  const [increment, setIncrement] = useState(1);
-  const [popupList, setPopupList] = useState([]);
-  const [gameOver, setGameOver] = useState(false);
-  const [disclaimer, setDisclaimer] = useState(false);
+  const [quantity, setQuantity] = useState(0); // State to track the number of popups created
 
+  const [increment, setIncrement] = useState(1); // State controlling the increment of popups appearing
+
+  const [popupList, setPopupList] = useState([]); // State for the list of currently visible popups
+
+  const [gameOver, setGameOver] = useState(false); // State flag to show/hide the GameOver component
+
+  const [disclaimer, setDisclaimer] = useState(false); // State flag to show/hide the Disclaimer component
+
+  /**
+   * Returns a random percentage string (e.g., "34%") within a given min-max range.
+   * Used to position popups randomly on the screen.
+   */
   function getRandomPercent(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min + "%";
   }
 
+  /**
+   * Returns a random message from the messageList.
+   * Used for displaying in each popup.
+   */
   function getRandomMessage() {
     const index = Math.floor(Math.random() * messageList.length);
     return messageList[index];
   }
 
+  /**
+   * Adds a new popup object to the popupList state.
+   * Called by openPopup() to add new popups at random positions.
+   */
   function handlePopupList(top, left, message, quantity) {
     setPopupList((popupList) => [
       ...popupList,
@@ -80,6 +97,10 @@ function App() {
     ]);
   }
 
+  /**
+   * Opens 'times' number of popups, randomly positioned, with random messages.
+   * Also increments the global increment state and triggers game over if limit exceeded.
+   */
   function openPopup(times) {
     for (let index = 0; index < times; index++) {
       const left = getRandomPercent(min, maxLeft);
@@ -94,11 +115,19 @@ function App() {
     }
   }
 
+  /**
+   * Opens a new browser window (called from GreySection and WhiteSection components via openWindow prop).
+   * Also triggers additional popups.
+   */
   function openWindow(link) {
     window.open(link);
     openPopup(increment);
   }
 
+  /**
+   * Hides (closes) a popup by setting its 'show' property to false.
+   * Called when a user closes a popup in the Popup component.
+   */
   function closePopup(id) {
     setPopupList((popupList) =>
       popupList.map((popup, index) =>
@@ -116,10 +145,18 @@ function App() {
     );
   }
 
+  /**
+   * Sets the game over state to true.
+   * Called in openPopup() when increment exceeds a threshold.
+   */
   function handleGameOver() {
     setGameOver(true);
   }
 
+  /**
+   * Resets the game state and shows the disclaimer screen.
+   * Triggered from GameOver component via 'disclaimer' prop.
+   */
   function handleDisclaimer() {
     setGameOver(false);
     setDisclaimer(true);
@@ -128,6 +165,10 @@ function App() {
     setIncrement(1);
   }
 
+  /**
+   * Restarts the game by hiding the disclaimer screen.
+   * Triggered from Disclaimer component via 'restart' prop.
+   */
   function restart() {
     setDisclaimer(false);
   }
@@ -135,22 +176,25 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      {/* Render active popups from popupList */}
       {popupList.map(
         (popupList) =>
           popupList.show && (
             <Popup
-              key={popupList.key}
               id={popupList.key}
               top={popupList.height}
               left={popupList.width}
               message={popupList.content}
               closePopup={closePopup}
-              show={popupList.show}
             />
           )
       )}
+      {/* Conditionally render GameOver screen */}
       {gameOver && <GameOver disclaimer={handleDisclaimer} />}
+      {/* Conditionally render Disclaimer screen */}
       {disclaimer && <Disclaimer restart={restart} />}
+
+      {/* Main content sections with conspiracy-themed text and images */}
       <GreySection
         id={"statulparalel"}
         bgColor={"grey"}
@@ -164,7 +208,7 @@ function App() {
         p3={
           "Singura șansă este să deschidem ochii și să nu mai cădem în capcana spectacolului electoral. Schimbarea adevărată nu poate veni de la cei deja infiltrați în sistem, ci doar dintr-o mișcare a oamenilor care înțeleg cum funcționează cu adevărat puterea. Până atunci, statul paralel va continua să conducă din umbră, folosindu-se de frică, manipulare și marionete politice."
         }
-        openWindow={openWindow}
+        openWindow={openWindow} // triggers link opening and popups
       />
       <WhiteSection
         id={"coifuldacic"}
@@ -179,7 +223,7 @@ function App() {
         p3={
           "Se speculează că unii dintre cei mai bogați oameni ai lumii, poate chiar elitele care controlează destinele planetei, dețin aceste artefacte și le folosesc în ritualuri secrete. Alții cred că sunt păstrate în buncăre subterane, analizate și protejate de guverne care știu adevărul despre daci, dar refuză să-l facă public. Un lucru e sigur: adevărul despre coiful dacic ne-a fost furat. Iar cei care știu prea multe… dispar."
         }
-        openWindow={openWindow}
+        openWindow={openWindow} // triggers link opening and popups
       />
       <GreySection
         id={"presedinteleales"}
@@ -194,7 +238,7 @@ function App() {
         p3={
           "Nu e nevoie să căutăm prea departe. Totul vine din aceleași centre de comandă externe, aceleași grupuri care au transformat România într-o colonie economică, dependentă și fără putere reală de decizie. Tot ce vedem sunt doar fețe diferite pentru același mecanism. Ce s-a întâmplat cu Călin Georgescu și cu turul 2 este doar un alt episod dintr-un plan mai mare, un plan care vrea să țină România sub control. Întrebarea este: cât timp vom mai accepta asta?"
         }
-        openWindow={openWindow}
+        openWindow={openWindow} // triggers link opening and popups
       />
     </div>
   );

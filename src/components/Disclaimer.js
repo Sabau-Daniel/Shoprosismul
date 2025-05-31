@@ -1,6 +1,18 @@
 import React from "react";
 
-export default function Credits({ restart }) {
+/**
+ * Disclaimer Component
+ *
+ * Props:
+ * - restart: function passed from the parent component (App.js) to reset the game state when the user clicks "Restart".
+ *
+ * Usage:
+ * - This component is conditionally rendered by App.js when the 'disclaimer' state is true.
+ * - Provides a message explaining that the game is a satirical piece.
+ * - Contains a button that triggers the 'restart' function to reset the game state and hide the disclaimer.
+ */
+
+export default function Disclaimer({ restart }) {
   return (
     <div className="credits">
       <p className="credits-title">Îți mulțumesc că ai jucat jocul meu! </p>

@@ -1,5 +1,20 @@
 import React from "react";
 
+/**
+ * GreySection Component
+ *
+ * Props:
+ * - id: string, used to uniquely identify this section for anchor linking or styling.
+ * - bgColor: string, CSS class name that sets the background color (e.g., "grey").
+ * - photo: string, URL to the image to display on the left side.
+ * - p1, p2, p3: strings, representing paragraphs of text to be displayed.
+ * - openWindow: function passed from the parent component (App.js) to handle opening external links in a new window and also triggers popups.
+ *
+ * Usage:
+ * - This component is used multiple times in App.js to create sections of the page with consistent layout but different content.
+ * - Each section has a photo, some text paragraphs, and two buttons linking to external resources.
+ */
+
 export default function GreySection({
   id,
   bgColor,

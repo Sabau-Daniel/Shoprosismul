@@ -3,6 +3,18 @@ import React from "react";
 import "./index.css";
 import anca from "./poze/anca-alexandrescu.png";
 
+/**
+ * Navbar Component
+ *
+ * Purpose:
+ * - Renders a fixed navigation bar at the top of the page.
+ * - Allows the user to smoothly scroll to different sections on the page.
+ *
+ * Usage:
+ * - Used in App.js as the top-level navigation.
+ * - Uses IDs on sections to scroll to the appropriate part of the page.
+ */
+
 export default function Navbar() {
   return (
     <div className="navbar">
